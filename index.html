@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                    },
+                    fontFamily: {
+                        sans: ['SUSE', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+
+        @layer base {
+            html {
+                scroll-behavior: smooth;
+            }
+        }
+
+    </style>
+</head>
+
+<body class="font-sans text-white">
+
+    <div class="relative bg-cover bg-no-repeat w-full h-screen "
+        style="background-image: url('https://w.wallhaven.cc/full/r7/wallhaven-r75p7m.jpg');">
+        <nav class="relative z-10 p-4 w-full flex ">
+            <img src="netflix_logo-removebg-preview.png" alt="netflix logo" class="w-36 ml-10 ">
+            <ul class="flex mt-8 ml-10 space-x-8 text-white font-sans text-base cursor-pointer font-medium ">
+                <li>Home Page</li>
+                <li>Series</li>
+                <li>Movie</li>
+                <li>New And Popular</li>
+                <li>My List</li>
+            </ul>
+            <div class="ml-[600px] mt-6 text-white">
+                <i class="fa-solid fa-magnifying-glass text-lg"></i>
+                <span class="ml-5 font-semibold text-lg">ADULT</span>
+                <i class="fa-solid fa-bell text-lg ml-5"></i>
+            </div>
+        </nav>
+        <div class="relative z-20 p-4 w-[650px] h-80 ml-16 mt-40" x-data="{ vidPlay: false , info : false }">
+            <h2 class="text-4xl font-medium">How to handle feelings of regret after not living up to my potential.</h2>
+            <p class="mt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore minus eaque incidunt
+                veritatis deserunt accusantium est iure dolorum doloremque animi culpa doloribus natus similique
+                asperiores vitae cumque impedit nulla, unde odit ex recusandae! Ratione laborum nobis soluta iure maxime
+                quas.</p>
+            <p class="mt-5">Click 'Play' to watch the video and 'Info' for details.</p>
+
+            <button class="bg-white rounded-sm text-black w-20 h-8 font-medium mt-5 mr-5" @click="vidPlay = !vidPlay">
+                <i class="fa-solid fa-play text-[13px] pr-1"></i> Play
+            </button>
+
+            <!-- Modal untuk video -->
+            <div x-show="vidPlay" x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0"
+                x-transition:leave="transition ease-in duration-200"
+                x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 translate-y-4"
+                @click.away="vidPlay = false"
+                class="fixed inset-0 bg-gray-800 bg-opacity-70 flex items-center justify-center z-50">
+                <div class="p-6 bg-white rounded-lg shadow-lg w-3/4 max-w-lg">
+                    <h2 class="text-xl font-semibold mb-2 text-slate-800">Memory</h2>
+                    <video class="w-full rounded" controls>
+                        <source src="video.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <button @click="vidPlay= false" class="px-4 py-2 bg-blue-500 text-white rounded mt-4">
+                        Close
+                    </button>
+                </div>
+            </div>
+
+                <button class="bg-gray-400 bg-opacity-55 rounded-sm text-black w-20 h-8 font-medium mt-5 mr-5 relative" @click="info = !info">
+                    <i class="fa-solid fa-circle-info text-white absolute left-2 top-1/2 transform -translate-y-1/2 ml-1"></i>
+                    <span class="ml-4 text-white">Info</span>
+                </button>
+
+                <div x-show="info" x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0"
+                x-transition:leave="transition ease-in duration-200"
+                x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 translate-y-4"
+                @click.away="info = false"
+                class="fixed inset-0 bg-gray-800 bg-opacity-70 flex items-center justify-center z-50">
+                <div class="p-6 bg-white rounded-lg shadow-lg w-3/4 max-w-lg">
+                    <h2 class="text-xl font-semibold mb-2 text-slate-800">Kata-Kata Hari Ini</h2>
+                    <img src="" alt="">
+                    <p class="text-slate-800 ">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima rerum earum debitis eveniet culpa expedita sed eum in ea? Quasi repellendus dolorem, assumenda et nostrum voluptate eveniet error illum. Tempore dolorum, consectetur eos, eum animi voluptatibus quas hic voluptates officiis recusandae beatae quo similique qui ab aliquid labore culpa explicabo voluptatem maiores nisi. Labore provident quae debitis saepe autem nulla quas iste sequi beatae cumque, veritatis, eveniet adipisci praesentium? Et dolores odio incidunt, dignissimos placeat recusandae officiis nulla at ipsum expedita soluta, a, molestias ipsam! A atque, iste numquam nemo aliquam nesciunt eveniet porro corrupti adipisci repudiandae repellat, facere necessitatibus!
+                    </p>
+                    <button @click="info= false" class="px-4 py-2 bg-blue-500 text-white rounded mt-4">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+    <div
+        class="absolute inset-0 w-full h-full bg-orange-300 opacity-30 filter grayscale hue-rotate-15 contrast-125 backdrop-brightness-50  bg-gradient-to-t from-slate-500 to-slate-700">
+    </div>
+    </div>
+
+    <div class="">
+        <div class="flex items-center p-10 ">
+            <!-- Left Heart -->
+            <div class="flex flex-col items-center">
+                <div class="w-1 h-96 top-[650px] -z-30 absolute bg-slate-500"></div>
+                <i class="fa-solid fa-heart text-red-500 text-9xl relative z-10"></i>
+                <i class="fa-solid fa-heart text-red-500 text-9xl relative z-10"></i>
+                <i class="fa-solid fa-heart text-red-500 text-9xl relative z-10"></i>
+            </div>
+            <!-- Spacer -->
+            <div class="w-1 flex-grow bg-slate-500"></div>
+            <!-- Right Heart -->
+            <div class="flex flex-col items-center">
+                <div class="w-1 h-96 top-[650px] -z-30 absolute bg-slate-500"></div>
+                <i class="fa-solid fa-heart text-red-500 text-9xl relative z-10"></i>
+                <i class="fa-solid fa-heart text-red-500 text-9xl relative z-10"></i>
+                <i class="fa-solid fa-heart text-red-500 text-9xl relative z-10"></i>
+            </div>
+        </div>
+
+        <div class="w-full max-w-[1100px] absolute -mt-96 ml-56 p-10 space-y-16">
+            <h1 class="text-black text-center text-7xl font-sans font-semibold">Memory Me and You</h1>
+            <!-- Photo Memory Wall -->
+            <section id="info" x-data="{ selectedPhoto: null, photos: [
+                { src: 'https://i.pinimg.com/236x/0e/40/56/0e40563aae6961d83e7913851ca1cc5b.jpg', caption: 'Moment 1: Your special day.' },
+                { src: 'https://i.pinimg.com/236x/0e/40/56/0e40563aae6961d83e7913851ca1cc5b.jpg', caption: 'Moment 2: The trip of a lifetime.' },
+                { src: 'https://i.pinimg.com/236x/0e/40/56/0e40563aae6961d83e7913851ca1cc5b.jpg', caption: 'Moment 2: The trip of a lifetime.' },
+                { src: 'https://i.pinimg.com/236x/0e/40/56/0e40563aae6961d83e7913851ca1cc5b.jpg', caption: 'Moment 2: The trip of a lifetime.' },
+                { src: 'https://i.pinimg.com/236x/0e/40/56/0e40563aae6961d83e7913851ca1cc5b.jpg', caption: 'Moment 2: The trip of a lifetime.' },
+                { src: 'https://i.pinimg.com/236x/0e/40/56/0e40563aae6961d83e7913851ca1cc5b.jpg', caption: 'Moment 3: Our little secret spot.' }
+            ] }" class=" p-8 rounded-lg">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                    <template x-for="(photo, index) in photos" :key="index">
+                        <div class="relative">
+                            <img :src="photo.src" alt="" class="w-full h-64 object-cover rounded-lg cursor-pointer"
+                                @click="selectedPhoto = photo" x-transition:enter="transition ease-out duration-300"
+                                x-transition:enter-start="opacity-0 scale-90"
+                                x-transition:enter-end="opacity-100 scale-100" />
+                        </div>
+                    </template>
+                </div>
+
+                <div x-show="selectedPhoto" x-transition:enter="transition ease-out duration-300"
+                    x-transition:enter-start="opacity-0 translate-y-4"
+                    x-transition:enter-end="opacity-100 translate-y-0"
+                    x-transition:leave="transition ease-in duration-200"
+                    x-transition:leave-start="opacity-100 translate-y-0"
+                    x-transition:leave-end="opacity-0 translate-y-4" @click.away="selectedPhoto = null"
+                    class="fixed inset-0 bg-gray-800 bg-opacity-70 flex items-center justify-center z-50">
+                    <div class="p-6 bg-white rounded-lg shadow-lg w-3/4 max-w-lg">
+                        <h2 class="text-xl font-semibold mb-2 text-slate-800">Memory</h2>
+                        <img :src="selectedPhoto.src" alt="" class="w-full h-64 object-cover rounded-lg mb-4" />
+                        <p x-text="selectedPhoto.caption" class="text-gray-700 mb-4"></p>
+                        <button @click="selectedPhoto = null" class="px-4 py-2 bg-blue-500 text-white rounded">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Countdown to Special Day -->
+            <section id="countdown" class=" p-8 rounded-lg">
+                <div class="bg-black p-8 rounded-lg shadow-lg text-center" x-data="countdown()">
+                    <h1 class="text-3xl font-bold mb-6">Countdown to Our Special Day</h1>
+
+                    <div class="mb-4">
+                        <label for="dateInput" class="block text-lg mb-2">Choose Your Special Date:</label>
+                        <input type="date" id="dateInput" x-model="inputDate" class="p-2 border rounded-md">
+                        <button @click="setTargetDate()" class="ml-2 px-4 py-2 bg-blue-500 text-white rounded">Start
+                            Countdown</button>
+                    </div>
+
+                    <div x-show="targetDate" class="text-4xl font-semibold mb-8">
+                        <span x-text="days"></span> Days,
+                        <span x-text="hours"></span> Hours,
+                        <span x-text="minutes"></span> Minutes,
+                        <span x-text="seconds"></span> Seconds
+                    </div>
+
+                    <div x-show="showNotification" class="p-4 mb-4 text-white bg-blue-500 rounded-lg"
+                        x-transition:enter="transition ease-out duration-300"
+                        x-transition:enter-start="opacity-0 translate-y-4"
+                        x-transition:enter-end="opacity-100 translate-y-0">
+                        <p>Don't forget! Only <span x-text="days"></span> days left until our special day!</p>
+                    </div>
+
+                    <button @click="showNotification = false" x-show="showNotification"
+                        class="mt-4 px-4 py-2 bg-red-500 text-white rounded">
+                        Dismiss
+                    </button>
+                </div>
+            </section>
+
+        </div>
+
+        <script>
+            function countdown() {
+                return {
+                    inputDate: '',
+                    targetDate: null,
+                    days: 0,
+                    hours: 0,
+                    minutes: 0,
+                    seconds: 0,
+                    showNotification: false,
+                    interval: null,
+
+                    setTargetDate() {
+                        if (this.inputDate) {
+                            this.targetDate = new Date(this.inputDate).getTime();
+                            this.startCountdown();
+                        }
+                    },
+
+                    startCountdown() {
+                        clearInterval(this.interval);
+                        this.updateCountdown();
+                        this.interval = setInterval(() => {
+                            this.updateCountdown();
+                        }, 1000);
+                    },
+
+                    updateCountdown() {
+                        const now = new Date().getTime();
+                        const distance = this.targetDate - now;
+
+                        this.days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                        this.hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        this.minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                        this.seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                        if (this.days <= 3 && this.days > 0) {
+                            this.showNotification = true;
+                        } else if (distance < 0) {
+                            clearInterval(this.interval);
+                            this.days = this.hours = this.minutes = this.seconds = 0;
+                        }
+                    }
+                }
+            }
+        </script>
+
+</body>
+
+</html>
